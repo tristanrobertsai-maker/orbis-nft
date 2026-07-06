@@ -12,7 +12,7 @@ const GithubIcon = ({ size = 20, className = '' }: { size?: number; className?: 
   </svg>
 );
 
-const Hero = () => {
+const Hero = ({ onEnterTerminal }: { onEnterTerminal: () => void }) => {
   return (
     <section className="relative w-full min-h-screen rounded-b-[32px] overflow-hidden">
       <video
@@ -77,6 +77,29 @@ const Hero = () => {
               <Icon size={20} className="text-cream" />
             </button>
           ))}
+        </div>
+
+        {/* Access Terminal Entry Button */}
+        <div className="flex justify-center mb-16">
+          <button
+            onClick={onEnterTerminal}
+            className="group relative liquid-glass px-10 py-4 rounded-[24px] hover:bg-neon/10 transition-all duration-300"
+          >
+            <div className="flex items-center gap-4">
+              {/* Pulsing orb */}
+              <div className="relative">
+                <div className="w-4 h-4 rounded-full bg-neon shadow-lg shadow-neon/50 animate-pulse" />
+                <div className="absolute inset-0 w-4 h-4 rounded-full bg-neon animate-ping opacity-40" />
+              </div>
+              <span className="font-grotesk text-18 sm:text-24 uppercase tracking-widest text-cream group-hover:text-neon transition-colors">
+                ACCESS TERMINAL
+              </span>
+              {/* Arrow */}
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cream group-hover:text-neon group-hover:translate-x-1 transition-all">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </div>
+          </button>
         </div>
       </div>
     </section>

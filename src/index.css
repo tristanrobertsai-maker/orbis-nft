@@ -42,13 +42,33 @@ body {
   pointer-events: none;
 }
 
-.texture-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
-  background-image: url('/texture.png');
-  background-size: cover;
-  mix-blend-mode: lighten;
-  opacity: 0.6;
+/* Loading Bar Animation */
+@keyframes loading-bar {
+  0% { width: 0%; }
+  50% { width: 70%; }
+  100% { width: 100%; }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 2s ease-in-out infinite;
+}
+
+/* Scanline Effect */
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, 20px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.animate-in {
+  animation: fadeIn 0.4s ease-out;
 }
