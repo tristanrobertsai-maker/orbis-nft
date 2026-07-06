@@ -15,8 +15,10 @@ export default function HUDOverlay({ activeNFT, onExit, onBackToOverview, scroll
           ORBIS.NFT
           <span className="text-neon ml-2">// TERMINAL</span>
         </div>
+      </div>
 
-        {/* Exit Button */}
+      {/* Exit Button - Top Right */}
+      <div className="absolute top-8 right-8 pointer-events-auto">
         <button
           onClick={onExit}
           className="liquid-glass px-6 py-3 rounded-full text-cream hover:bg-white/10 transition-all flex items-center gap-2"
@@ -28,14 +30,14 @@ export default function HUDOverlay({ activeNFT, onExit, onBackToOverview, scroll
         </button>
       </div>
 
-      {/* Navigation Steps */}
+      {/* Navigation Steps - Below Exit Button */}
       {activeNFT === null && (
-        <div className="absolute top-8 right-8 flex gap-2 pointer-events-auto">
+        <div className="absolute top-24 right-8 flex gap-2 pointer-events-auto">
           {[0, 1, 2, 3].map((idx) => (
             <div
               key={idx}
-              className={`liquid-glass px-4 py-2 rounded-lg text-cream text-sm transition-all ${
-                scrollProgress > idx * 0.25 ? 'bg-neon/20 text-neon border-neon' : ''
+              className={`liquid-glass w-10 h-10 rounded-lg text-cream text-sm transition-all flex items-center justify-center ${
+                scrollProgress > idx * 0.25 ? 'bg-neon/20 text-neon' : ''
               }`}
             >
               {idx + 1}
