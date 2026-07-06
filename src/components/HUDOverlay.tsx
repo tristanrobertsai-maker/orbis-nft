@@ -12,7 +12,7 @@ export default function HUDOverlay({ activeNFT, onExit, onBackToOverview, scroll
       <div className="absolute top-0 left-0 right-0 p-8 flex justify-between items-start pointer-events-auto">
         {/* Logo */}
         <div className="text-cream font-grotesk text-2xl tracking-widest">
-          ORBIS.NFT
+          ORBITALS
           <span className="text-neon ml-2">// TERMINAL</span>
         </div>
       </div>

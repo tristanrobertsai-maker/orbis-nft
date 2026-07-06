@@ -19,10 +19,10 @@ const About = () => {
           <div className="relative">
             <h2 className="font-grotesk uppercase text-[32px] sm:text-[40px] md:text-[50px] lg:text-[60px] leading-[1.05] text-cream">
               Hello!<br />
-              I'm orbis
+              We're orbitals
             </h2>
             <span className="absolute right-0 bottom-0 font-condiment text-[36px] sm:text-[44px] md:text-[56px] lg:text-[68px] text-neon -rotate-1 mix-blend-exclusion opacity-90">
-              Orbis
+              Orbitals
             </span>
           </div>
 

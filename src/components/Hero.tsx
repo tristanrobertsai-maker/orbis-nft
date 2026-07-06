@@ -1,5 +1,7 @@
 import { Mail } from 'lucide-react';
 
+const TWITTER_URL = 'https://x.com/orbitalsnftshop';
+
 const TwitterIcon = ({ size = 20, className = '' }: { size?: number; className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -29,7 +31,7 @@ const Hero = ({ onEnterTerminal }: { onEnterTerminal: () => void }) => {
         {/* Header */}
         <header className="flex items-center justify-between py-8">
           <div className="font-grotesk text-[16px] uppercase text-cream">
-            Orbis.Nft
+            Orbitals
           </div>
 
           {/* Desktop Nav */}
@@ -50,11 +52,29 @@ const Hero = ({ onEnterTerminal }: { onEnterTerminal: () => void }) => {
 
         {/* Desktop Social Icons */}
         <div className="hidden lg:flex flex-col gap-4 absolute top-32 right-16">
-          {[Mail, TwitterIcon, GithubIcon].map((Icon, i) => (
-            <button key={i} className="liquid-glass w-[56px] h-[56px] rounded-[1rem] flex items-center justify-center hover:bg-white/10 transition">
-              <Icon size={20} className="text-cream" />
-            </button>
-          ))}
+          <a
+            href="mailto:contact@orbitalsnft.com"
+            className="liquid-glass w-[56px] h-[56px] rounded-[1rem] flex items-center justify-center hover:bg-white/10 transition"
+            aria-label="Email"
+          >
+            <Mail size={20} className="text-cream" />
+          </a>
+          <a
+            href={TWITTER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="liquid-glass w-[56px] h-[56px] rounded-[1rem] flex items-center justify-center hover:bg-white/10 transition"
+            aria-label="Twitter"
+          >
+            <TwitterIcon size={20} className="text-cream" />
+          </a>
+          <a
+            href="#"
+            className="liquid-glass w-[56px] h-[56px] rounded-[1rem] flex items-center justify-center hover:bg-white/10 transition"
+            aria-label="Github"
+          >
+            <GithubIcon size={20} className="text-cream" />
+          </a>
         </div>
 
         {/* Hero Content */}
@@ -71,12 +91,30 @@ const Hero = ({ onEnterTerminal }: { onEnterTerminal: () => void }) => {
         </div>
 
         {/* Mobile Social Icons */}
-        <div className="flex lg:hidden justify-center gap-4 mt-8 mb-16">
-          {[Mail, TwitterIcon, GithubIcon].map((Icon, i) => (
-            <button key={i} className="liquid-glass w-[56px] h-[56px] rounded-[1rem] flex items-center justify-center hover:bg-white/10 transition">
-              <Icon size={20} className="text-cream" />
-            </button>
-          ))}
+        <div className="flex lg:hidden justify-center gap-4 mt-8 mb-8">
+          <a
+            href="mailto:contact@orbitalsnft.com"
+            className="liquid-glass w-[56px] h-[56px] rounded-[1rem] flex items-center justify-center hover:bg-white/10 transition"
+            aria-label="Email"
+          >
+            <Mail size={20} className="text-cream" />
+          </a>
+          <a
+            href={TWITTER_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="liquid-glass w-[56px] h-[56px] rounded-[1rem] flex items-center justify-center hover:bg-white/10 transition"
+            aria-label="Twitter"
+          >
+            <TwitterIcon size={20} className="text-cream" />
+          </a>
+          <a
+            href="#"
+            className="liquid-glass w-[56px] h-[56px] rounded-[1rem] flex items-center justify-center hover:bg-white/10 transition"
+            aria-label="Github"
+          >
+            <GithubIcon size={20} className="text-cream" />
+          </a>
         </div>
 
         {/* Access Terminal Entry Button */}
@@ -86,15 +124,13 @@ const Hero = ({ onEnterTerminal }: { onEnterTerminal: () => void }) => {
             className="group relative liquid-glass px-10 py-4 rounded-[24px] hover:bg-neon/10 transition-all duration-300"
           >
             <div className="flex items-center gap-4">
-              {/* Pulsing orb */}
               <div className="relative">
                 <div className="w-4 h-4 rounded-full bg-neon shadow-lg shadow-neon/50 animate-pulse" />
                 <div className="absolute inset-0 w-4 h-4 rounded-full bg-neon animate-ping opacity-40" />
               </div>
-              <span className="font-grotesk text-18 sm:text-24 uppercase tracking-widest text-cream group-hover:text-neon transition-colors">
+              <span className="font-grotesk text-[18px] sm:text-[24px] uppercase tracking-widest text-cream group-hover:text-neon transition-colors">
                 ACCESS TERMINAL
               </span>
-              {/* Arrow */}
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-cream group-hover:text-neon group-hover:translate-x-1 transition-all">
                 <path d="M5 12h14M12 5l7 7-7 7"/>
               </svg>

@@ -1,5 +1,7 @@
 import { Mail } from 'lucide-react';
 
+const TWITTER_URL = 'https://x.com/orbitalsnftshop';
+
 const TwitterIcon = ({ size = 20, className = '' }: { size?: number; className?: string }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -53,14 +55,37 @@ const CTA = () => {
       {/* Social Icons */}
       <div className="absolute left-[8%] bottom-[12%] sm:bottom-[16%] lg:bottom-[20%]">
         <div className="liquid-glass rounded-[0.5rem] sm:rounded-[0.75rem] lg:rounded-[1.25rem] overflow-hidden">
-          {[Mail, TwitterIcon, GithubIcon].map((Icon, i) => (
-            <div key={i}>
-              <button className="w-[14vw] sm:w-[14.375rem] md:w-[10.78125rem] lg:w-[16.77rem] aspect-square flex items-center justify-center hover:bg-white/10 transition">
-                <Icon size={20} className="text-cream" />
-              </button>
-              {i < 2 && <div className="border-b border-white/10"></div>}
-            </div>
-          ))}
+          <div>
+            <a
+              href="mailto:contact@orbitalsnft.com"
+              className="w-[14vw] sm:w-[14.375rem] md:w-[10.78125rem] lg:w-[16.77rem] aspect-square flex items-center justify-center hover:bg-white/10 transition"
+              aria-label="Email"
+            >
+              <Mail size={20} className="text-cream" />
+            </a>
+            <div className="border-b border-white/10"></div>
+          </div>
+          <div>
+            <a
+              href={TWITTER_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-[14vw] sm:w-[14.375rem] md:w-[10.78125rem] lg:w-[16.77rem] aspect-square flex items-center justify-center hover:bg-white/10 transition"
+              aria-label="Twitter"
+            >
+              <TwitterIcon size={20} className="text-cream" />
+            </a>
+            <div className="border-b border-white/10"></div>
+          </div>
+          <div>
+            <a
+              href="#"
+              className="w-[14vw] sm:w-[14.375rem] md:w-[10.78125rem] lg:w-[16.77rem] aspect-square flex items-center justify-center hover:bg-white/10 transition"
+              aria-label="Github"
+            >
+              <GithubIcon size={20} className="text-cream" />
+            </a>
+          </div>
         </div>
       </div>
     </section>

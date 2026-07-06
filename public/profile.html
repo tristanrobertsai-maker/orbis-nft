@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orbis.NFT - Profile Image (400x400)</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { background: #010828; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+      canvas { display: block; width: 400px; height: 400px; }
+      #info {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        color: #EFF4FF;
+        font-family: monospace;
+        font-size: 14px;
+        z-index: 100;
+        background: rgba(1, 8, 40, 0.8);
+        padding: 10px 15px;
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="info">Profile Image Preview (400x400) — Screenshot at 100% zoom</div>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module">
+      import * as THREE from 'three';
+
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x010828);
+
+      const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+      camera.position.set(0, 1.5, 4.5);
+
+      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+      renderer.setSize(400, 400);
+      renderer.setPixelRatio(2); // 2x for retina quality
+      document.body.appendChild(renderer.domElement);
+
+      // Lighting
+      scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+      const dirLight = new THREE.DirectionalLight(0xffffff, 1.4);
+      dirLight.position.set(3, 6, 4);
+      scene.add(dirLight);
+      
+      const pointLight1 = new THREE.PointLight(0x6FFF00, 2, 15);
+      pointLight1.position.set(-3, 2, 3);
+      scene.add(pointLight1);
+      
+      const pointLight2 = new THREE.PointLight(0xb724ff, 1.5, 15);
+      pointLight2.position.set(3, 2, 3);
+      scene.add(pointLight2);
+
+      // Simple astronaut (rose visor version)
+      const group = new THREE.Group();
+      
+      // Body
+      const bodyGeo = new THREE.CapsuleGeometry(0.75, 1, 8, 16);
+      const bodyMat = new THREE.MeshStandardMaterial({ color: 0xe8f0ff, roughness: 0.55 });
+      const body = new THREE.Mesh(bodyGeo, bodyMat);
+      group.add(body);
+
+      // Helmet
+      const helmetGeo = new THREE.SphereGeometry(1.15, 32, 32);
+      const helmetMat = new THREE.MeshStandardMaterial({ color: 0xf0f3ff, roughness: 0.5 });
+      const helmet = new THREE.Mesh(helmetGeo, helmetMat);
+      helmet.position.y = 1.65;
+      group.add(helmet);
+
+      // Rose visor
+      const visorGeo = new THREE.SphereGeometry(0.85, 32, 32, 0, Math.PI, 0, Math.PI / 2);
+      const visorMat = new THREE.MeshPhysicalMaterial({
+        color: 0xffb3b3,
+        roughness: 0.05,
+        metalness: 0.95,
+        clearcoat: 1,
+        transparent: true,
+        opacity: 0.85
+      });
+      const visor = new THREE.Mesh(visorGeo, visorMat);
+      visor.position.set(0, 1.6, 0.25);
+      group.add(visor);
+
+      // Eyes (closed slits)
+      const eyeGeo = new THREE.BoxGeometry(0.18, 0.03, 0.04);
+      const eyeMat = new THREE.MeshBasicMaterial({ color: 0x2a1a1a });
+      const leftEye = new THREE.Mesh(eyeGeo, eyeMat);
+      leftEye.position.set(-0.25, 1.68, 0.95);
+      group.add(leftEye);
+      const rightEye = new THREE.Mesh(eyeGeo, eyeMat);
+      rightEye.position.set(0.25, 1.68, 0.95);
+      group.add(rightEye);
+
+      group.position.y = -0.5;
+      scene.add(group);
+
+      // Glowing rings
+      const ring1 = new THREE.Mesh(
+        new THREE.TorusGeometry(1.8, 0.03, 16, 80),
+        new THREE.MeshBasicMaterial({ color: 0x6FFF00, transparent: true, opacity: 0.6 })
+      );
+      ring1.position.set(0, 1, -1);
+      scene.add(ring1);
+
+      const ring2 = new THREE.Mesh(
+        new THREE.TorusGeometry(1.5, 0.025, 16, 80),
+        new THREE.MeshBasicMaterial({ color: 0xb724ff, transparent: true, opacity: 0.4 })
+      );
+      ring2.position.set(0, 1, -1.1);
+      ring2.rotation.z = Math.PI / 4;
+      scene.add(ring2);
+
+      // Stars
+      const starGeo = new THREE.BufferGeometry();
+      const starPositions = [];
+      for (let i = 0; i < 800; i++) {
+        starPositions.push((Math.random() - 0.5) * 80);
+        starPositions.push((Math.random() - 0.5) * 80);
+        starPositions.push((Math.random() - 0.5) * 80);
+      }
+      starGeo.setAttribute('position', new THREE.Float32BufferAttribute(starPositions, 3));
+      const starMat = new THREE.PointsMaterial({ color: 0xffffff, size: 0.4 });
+      scene.add(new THREE.Points(starGeo, starMat));
+
+      // Animation
+      let time = 0;
+      function animate() {
+        time += 0.01;
+        group.position.y = -0.5 + Math.sin(time * 1.5) * 0.15;
+        group.rotation.y += 0.008;
+        
+        ring1.rotation.x += 0.008;
+        ring2.rotation.x -= 0.005;
+
+        renderer.render(scene, camera);
+        requestAnimationFrame(animate);
+      }
+      animate();
+    </script>
+  </body>
+</html>

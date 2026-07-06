@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Collection from './components/Collection';
 import CTA from './components/CTA';
+import Footer from './components/Footer';
 import Terminal from './components/Terminal';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
           <About />
           <Collection />
           <CTA />
+          <Footer />
         </>
       ) : (
         <Terminal onExit={() => setShowTerminal(false)} />
