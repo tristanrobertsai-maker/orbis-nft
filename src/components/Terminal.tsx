@@ -4,7 +4,7 @@ import { OrbitControls, Stars } from '@react-three/drei';
 import AlienTerrain from './AlienTerrain';
 import AlienStructures from './AlienStructures';
 import Hotspot from './Hotspot';
-import NFTCharacter from './NFTCharacter';
+import AstronautCharacter from './AstronautCharacter';
 import HUDOverlay from './HUDOverlay';
 
 interface TerminalProps {
@@ -94,7 +94,12 @@ export default function Terminal({ onExit }: TerminalProps) {
 
         {nftData.map((nft, idx) => (
           <group key={idx}>
-            <NFTCharacter position={nft.position} isActive={activeNFT === idx} />
+            <AstronautCharacter
+              position={nft.position}
+              variant={idx as 0 | 1 | 2}
+              isActive={activeNFT === idx}
+              floatOffset={idx * 2.5}
+            />
             <Hotspot
               position={[nft.position[0], nft.position[1] + 4, nft.position[2]]}
               nftId={idx}
