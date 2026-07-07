@@ -38,11 +38,16 @@ const Footer = () => {
                 <div className="w-1.5 h-1.5 rounded-full bg-neon animate-pulse" />
               </div>
 
-              <div className="liquid-glass rounded-[20px] px-8 py-5 mb-4">
-                <span className="font-grotesk text-[18px] sm:text-[22px] text-cream tracking-[0.1em] uppercase">
-                  Coming Soon
+              <a
+                href="https://solscan.io/token/rS7NrQwH53GtJviWH7jFQL2VkvH4SngNgfVcDCLpump"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="liquid-glass rounded-[20px] px-4 sm:px-8 py-5 mb-4 group cursor-pointer hover:bg-neon/10 transition"
+              >
+                <span className="font-grotesk text-[11px] sm:text-[14px] text-cream tracking-[0.1em] uppercase break-all">
+                  rS7NrQwH53GtJviWH7jFQL2VkvH4SngfVcDCLpump
                 </span>
-              </div>
+              </a>
 
               <p className="font-condiment text-neon text-[20px] mt-2">
                 verified on-chain
@@ -76,7 +81,7 @@ const Footer = () => {
             © 2025 Orbitals. — Beyond the familiar boundaries
           </span>
           <div className="flex gap-4">
-            <span className="font-mono text-[11px] uppercase text-cream/40">Chain: Ethereum</span>
+            <span className="font-mono text-[11px] uppercase text-cream/40">Chain: Solana</span>
             <span className="font-mono text-[11px] uppercase text-neon">● Live</span>
           </div>
         </div>
