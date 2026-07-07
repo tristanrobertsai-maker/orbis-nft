@@ -39,7 +39,7 @@ const Footer = () => {
               </div>
 
               <a
-                href="https://solscan.io/token/rS7NrQwH53GtJviWH7jFQL2VkvH4SngNgfVcDCLpump"
+                href="https://pump.fun/coin/rS7NrQwH53GtJviWH7jFQL2VkvH4SngNgfVcDCLpump"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="liquid-glass rounded-[20px] px-4 sm:px-8 py-5 mb-4 group cursor-pointer hover:bg-neon/10 transition"
