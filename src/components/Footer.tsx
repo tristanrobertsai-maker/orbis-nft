@@ -39,13 +39,13 @@ const Footer = () => {
               </div>
 
               <a
-                href="https://pump.fun/coin/sRorJxM7P72ixPZHSU5fFRtbu5cZw77HqN3nygdpump"
+                href="https://pump.fun/coin/sNofkBYxrNgUpacm9R13kBt23TH28SQmFLLUL8Gpump"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="liquid-glass rounded-[20px] px-4 sm:px-8 py-5 mb-4 group cursor-pointer hover:bg-neon/10 transition"
               >
                 <span className="font-grotesk text-[11px] sm:text-[14px] text-cream tracking-[0.1em] uppercase break-all">
-                  sRorJxM7P72ixPZHSU5fFRtbu5cZw77HqN3nygdpump
+                  sNofkBYxrNgUpacm9R13kBt23TH28SQmFLLUL8Gpump
                 </span>
               </a>
 
