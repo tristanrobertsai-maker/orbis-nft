@@ -13,47 +13,8 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Center — Contract Address Block */}
-          <div className="relative flex flex-col items-center text-center">
-            {/* Decorative rotating rings */}
-            <div
-              className="absolute inset-0 pointer-events-none flex items-center justify-center"
-              style={{ animation: 'spin 20s linear infinite' }}
-            >
-              <div className="w-[320px] h-[320px] border border-neon/20 rounded-full" />
-            </div>
-            <div
-              className="absolute inset-0 pointer-events-none flex items-center justify-center"
-              style={{ animation: 'spin 30s linear infinite reverse' }}
-            >
-              <div className="w-[360px] h-[360px] border border-[#b724ff]/15 rounded-full border-dashed" />
-            </div>
-
-            <div className="relative flex flex-col items-center">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-1.5 h-1.5 rounded-full bg-neon animate-pulse" />
-                <span className="font-grotesk text-[11px] uppercase tracking-[0.2em] text-neon">
-                  Contract Address
-                </span>
-                <div className="w-1.5 h-1.5 rounded-full bg-neon animate-pulse" />
-              </div>
-
-              <a
-                href="https://pump.fun/coin/sNofkBYxrNgUpacm9R13kBt23TH28SQmFLLUL8Gpump"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="liquid-glass rounded-[20px] px-4 sm:px-8 py-5 mb-4 group cursor-pointer hover:bg-neon/10 transition"
-              >
-                <span className="font-grotesk text-[11px] sm:text-[14px] text-cream tracking-[0.1em] uppercase break-all">
-                  sNofkBYxrNgUpacm9R13kBt23TH28SQmFLLUL8Gpump
-                </span>
-              </a>
-
-              <p className="font-condiment text-neon text-[20px] mt-2">
-                verified on-chain
-              </p>
-            </div>
-          </div>
+          {/* Center — spacer */}
+          <div className="hidden md:block"></div>
 
           {/* Right — Links */}
           <div className="md:text-right">
