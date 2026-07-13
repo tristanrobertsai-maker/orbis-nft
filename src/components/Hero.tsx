@@ -27,6 +27,71 @@ const Hero = ({ onEnterTerminal }: { onEnterTerminal: () => void }) => {
         <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260331_045634_e1c98c76-1265-4f5c-882a-4276f2080894.mp4" type="video/mp4" />
       </video>
 
+      {/* HaloBull Scene Layer — sits on the moon in the video background */}
+      <div className="absolute inset-0 pointer-events-none" style={{ zIndex: 2 }}>
+        {/* Bull + Halo container — centered horizontally, overlaps title */}
+        <div
+          className="absolute"
+          style={{
+            top: '18%',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 'clamp(200px, 32vw, 420px)',
+            height: 'clamp(200px, 32vw, 420px)',
+            zIndex: 15,
+          }}
+        >
+          {/* Wide atmospheric golden glow */}
+          <div
+            className="absolute rounded-full"
+            style={{
+              top: '5%',
+              left: '-10%',
+              right: '-10%',
+              bottom: '15%',
+              background: 'radial-gradient(circle, rgba(255,215,100,0.12) 0%, rgba(196,164,68,0.04) 38%, transparent 62%)',
+              zIndex: 0,
+            }}
+          />
+          {/* Sharp luminous ring matching the artwork's halo */}
+          <div
+            className="absolute rounded-full"
+            style={{
+              top: '6%',
+              left: '10%',
+              right: '10%',
+              bottom: '40%',
+              background: 'radial-gradient(circle, transparent 50%, rgba(255,220,130,0.50) 55%, rgba(255,220,130,0.10) 68%, transparent 80%)',
+              zIndex: 1,
+            }}
+          />
+          {/* HaloBull artwork */}
+          <img
+            src="/halobull.png"
+            alt=""
+            aria-hidden="true"
+            className="absolute inset-0 w-full h-full object-contain"
+            style={{
+              zIndex: 2,
+              filter: 'drop-shadow(0 20px 50px rgba(0,0,0,0.90)) contrast(1.05) brightness(1.06)',
+            }}
+          />
+          {/* Contact shadow beneath feet */}
+          <div
+            className="absolute"
+            style={{
+              bottom: '-1%',
+              left: '15%',
+              right: '15%',
+              height: '14%',
+              background: 'radial-gradient(ellipse at 50% 60%, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.30) 50%, transparent 80%)',
+              zIndex: 3,
+              filter: 'blur(3px)',
+            }}
+          />
+        </div>
+      </div>
+
       <div className="relative z-10 max-w-[1831px] mx-auto px-4 sm:px-8 lg:px-16 min-h-screen flex flex-col">
         {/* Header */}
         <header className="flex items-center justify-between py-8">
